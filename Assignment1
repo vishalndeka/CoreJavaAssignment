@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double price = 1.20; // price per unit
+        while(true){
+            System.out.println("Enter number of units to calculate bill, or enter -1 to exit:");
+            int u = sc.nextInt();
+            if(u == -1){ // exit condition
+                break;
+            } else if (u < -1) { // negative units
+                System.out.println("Invalid input.");
+            } else { // valid input
+                if(u < 100){
+                    System.out.printf("%.2f", u * price);
+                    System.out.println();
+                } else if (u >= 100 && u <= 300){
+                    System.out.printf("%.2f",100 * price + (u-100) * 2.00);
+                    System.out.println();
+                } else {
+                    System.out.printf("%.2f", 100 * price + 200 * 2.00 + (u-300)*3.00);
+                    System.out.println();
+                }
+            }
+        }
+        sc.close();
+    }
+}
