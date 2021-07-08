@@ -1,0 +1,57 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+        Account a1 = new Account(1234, 50000.00, "abc123");
+        a1.setBankName("Bank of Baroda"); // setting bank name
+        System.out.println("Account No. : " +a1.getAccountNo()); // using getter
+        System.out.println("Account Balance : " + a1.getAccountBalance()); // using getter
+        
+        a1.updateAccountPassword("abc123", "xyz789");
+
+        a1.displayAccount("xyz789"); // displaying acc details through 'displayAccount()'
+    }
+}
+
+class Account {
+    private int accountNo;
+    private double accountBalance;
+    private String accountPassword;
+
+    private static String bankName;
+
+    public Account(int accountNo, double accountBalance, String accountPassword){
+        this.accountNo = accountNo;
+        this.accountBalance = accountBalance;
+        this.accountPassword = accountPassword;
+    }
+
+    public int getAccountNo(){
+        return this.accountNo;
+    }
+    public double getAccountBalance(){
+        return this.accountBalance;
+    }
+
+    public void updateAccountPassword(String oldPassword, String newPassword){
+        if(oldPassword == this.accountPassword){
+            this.accountPassword = newPassword;
+            System.out.println("Password changed!");
+        } else {
+            System.out.println("Incorrect old password! Contact bank to recover or try again.");
+        }
+    }
+
+    public void setBankName(String bankName){
+        Account.bankName = bankName;
+    }
+
+    public void displayAccount(String password){
+        if(password == this.accountPassword){
+            System.out.println("Your bank is : " + Account.bankName);
+            System.out.println("Your account number : " +this.accountNo);
+            System.out.println("Your account balance : " +this.accountBalance);
+        } else {
+            System.out.println("Enter correct password!");
+        }
+    }
+
+}
