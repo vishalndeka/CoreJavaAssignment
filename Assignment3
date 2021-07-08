@@ -1,0 +1,76 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+        int grandTotal = 0;
+        int innings = 5;
+        int[] scoresArray = {0, 0, 0, 0, 0, 0};
+        while(innings-->0){
+
+            int[] runs = new int[30];
+            int total = 0;
+            int dots = 0;
+            int singles = 0;
+            int twos = 0;
+            int threes = 0;
+            int fours = 0;
+            int sixes = 0;
+            for(int i = 0; i<30; i++){
+                runs[i] = randomRunGenerator();
+                total += runs[i];
+        
+                switch(runs[i]){
+                    case 0:
+                        dots++;
+                        break;
+                    case 1:
+                        singles++;
+                        break;
+                    case 2:
+                        twos++;
+                        break;
+                    case 3:
+                        threes++;
+                        break;
+                    case 4:
+                        fours++;
+                        break;
+                    case 6:
+                        sixes++;
+                        break;
+                }
+            
+            }
+            System.out.println("Total runs scored: " + total);
+
+            System.out.println("Number of 0s: " + dots);
+            scoresArray[0] += dots;
+            System.out.println("Number of 1s: " + singles);
+            scoresArray[1] += singles;
+            System.out.println("Number of 2s: " + twos);
+            scoresArray[2] += twos;
+            System.out.println("Number of 3s: " + threes);
+            scoresArray[3] += threes;
+            System.out.println("Number of 4s: " + fours);
+            scoresArray[4] += fours;
+            System.out.println("Number of 6s: " + sixes);
+            scoresArray[5] += sixes;
+
+            System.out.println("Strike rate: " + (double)total/30);
+
+            grandTotal += total;
+            System.out.println("----------------------------------------------");
+
+        }
+
+        System.out.println("----------------------------------------------");
+        System.out.println("Average score of last 5 matches: " + grandTotal/5);
+        System.out.println("Total runs scored in last 5 matches: " + grandTotal);
+        System.out.println("In last 5 matches, total numnber of:\n0s: " + scoresArray[0] +"\n1s: " + scoresArray[1] +"\n2s: " + scoresArray[2] +"\n3s: " + scoresArray[3] +"\n4s: " + scoresArray[4] +"\n6s: " + scoresArray[5] );
+        System.out.println("Average Strike rate in last 5 matches: " + (double)grandTotal/150);
+    }
+
+    public static int randomRunGenerator(){
+        int[] scores = {0, 1, 2, 3, 4, 6};
+        int randomIndex = (int) (Math.random() * 6);
+        return scores[randomIndex];
+    }
+}
