@@ -54,7 +54,7 @@ public class App {
             System.out.println("Number of 6s: " + sixes);
             scoresArray[5] += sixes;
 
-            System.out.println("Strike rate: " + (double)total/30);
+            System.out.println("Strike rate: " + (double)total/30*100);
 
             grandTotal += total;
             System.out.println("----------------------------------------------");
@@ -65,7 +65,7 @@ public class App {
         System.out.println("Average score of last 5 matches: " + grandTotal/5);
         System.out.println("Total runs scored in last 5 matches: " + grandTotal);
         System.out.println("In last 5 matches, total numnber of:\n0s: " + scoresArray[0] +"\n1s: " + scoresArray[1] +"\n2s: " + scoresArray[2] +"\n3s: " + scoresArray[3] +"\n4s: " + scoresArray[4] +"\n6s: " + scoresArray[5] );
-        System.out.println("Average Strike rate in last 5 matches: " + (double)grandTotal/150);
+        System.out.println("Average Strike rate in last 5 matches: " + (double)grandTotal/150*100);
     }
 
     public static int randomRunGenerator(){
