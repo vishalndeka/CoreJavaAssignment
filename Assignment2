@@ -43,7 +43,7 @@ public class App {
         System.out.println("Number of 4s: " + fours);
         System.out.println("Number of 6s: " + sixes);
 
-        System.out.println("Strike rate: " + total/30);
+        System.out.println("Strike rate: " + total/30*100);
     }
 
     public static int randomRunGenerator(){
