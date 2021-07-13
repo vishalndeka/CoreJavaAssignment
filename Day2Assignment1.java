@@ -7,15 +7,15 @@ public class App {
         
         a1.updateAccountPassword("abc123", "xyz789");
 
-        a1.displayAccount("xyz789"); // displaying acc details through 'displayAccount()'
+        a1.displayAccount(); // displaying acc details through 'displayAccount()'
 
         SavingsAccount a2 = new SavingsAccount(9999, 1000000, "lti1912", 50000);
 
-        a2.displayAccount("lti1912");
+        a2.displayAccount();
 
         CurrentAccount a3 = new CurrentAccount(6666, 250000, "get940", 10000);
 
-        a3.displayAccount("get940");
+        a3.displayAccount();
     }
 }
 
@@ -39,10 +39,6 @@ class Account {
         return this.accountBalance;
     }
 
-    public String getAccountPassword() {
-        return this.accountPassword;
-    }
-
     public void updateAccountPassword(String oldPassword, String newPassword){
         if(oldPassword == this.accountPassword){
             this.accountPassword = newPassword;
@@ -60,14 +56,10 @@ class Account {
         return Account.bankName;
     }
 
-    public void displayAccount(String password){
-        if(password == this.accountPassword){
-            System.out.println("Your bank is : " + Account.bankName);
-            System.out.println("Your account number : " +this.accountNo);
-            System.out.println("Your account balance : " +this.accountBalance);
-        } else {
-            System.out.println("Incorrect password!");
-        }
+    public void displayAccount(){
+        System.out.println("Your bank is : " + Account.bankName);
+        System.out.println("Your account number : " +this.accountNo);
+        System.out.println("Your account balance : " +this.accountBalance);
     }
 
 }
@@ -97,15 +89,11 @@ class SavingsAccount extends Account {
     }
 
     @Override
-    public void displayAccount(String password) {
-        if(password == this.getAccountPassword()){
-            System.out.println("Your bank is : " + Account.getBankName());
-            System.out.println("Your account number : " +this.getAccountNo());
-            System.out.println("Your account balance : " +this.getAccountBalance());
-            System.out.println("Your minimum account balance : " +this.minimumBalance);
-        } else {
-            System.out.println("Incorrect password!");
-        }
+    public void displayAccount() {
+         System.out.println("Your bank is : " + Account.getBankName());
+         System.out.println("Your account number : " +this.getAccountNo());
+         System.out.println("Your account balance : " +this.getAccountBalance());
+         System.out.println("Your minimum account balance : " +this.minimumBalance);
     }
 }
 
@@ -135,14 +123,10 @@ class CurrentAccount extends Account {
     }
 
     @Override
-    public void displayAccount(String password) {
-        if(password == this.getAccountPassword()){
-            System.out.println("Your bank is : " + Account.getBankName());
-            System.out.println("Your account number : " +this.getAccountNo());
-            System.out.println("Your account balance : " +this.getAccountBalance());
-            System.out.println("Your overdraft limit : " +this.overDraftLimitAmount);
-        } else {
-            System.out.println("Incorrect password!");
-        }
+    public void displayAccount() {
+         System.out.println("Your bank is : " + Account.getBankName());
+         System.out.println("Your account number : " +this.getAccountNo());
+         System.out.println("Your account balance : " +this.getAccountBalance());
+         System.out.println("Your overdraft limit : " +this.overDraftLimitAmount);
     }
 }
